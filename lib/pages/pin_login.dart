@@ -1,14 +1,156 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class Mypin_login extends StatelessWidget {
+class Mypin_login extends StatefulWidget {
   const Mypin_login({super.key});
 
+  @override
+  State<Mypin_login> createState() => _Mypin_loginState();
+}
+
+class _Mypin_loginState extends State<Mypin_login> {
+  var pin_1 = '_';
+  var pin_2 = '_';
+  var pin_3 = '_';
+  var pin_4 = '_';
+  var pin_5 = '_';
+  var pin_6 = '_';
+
+  Widget _buildNumpad(
+    dynamic numb,
+    dynamic name,
+  ) {
+    return InkWell(
+      onTap: () {
+        setState(
+          () {
+            if (pin_1 == '_') {
+              pin_1 = numb;
+            } else if (pin_2 == '_') {
+              pin_2 = numb;
+            } else if (pin_3 == '_') {
+              pin_3 = numb;
+            } else if (pin_4 == '_') {
+              pin_4 = numb;
+            } else if (pin_5 == '_') {
+              pin_5 = numb;
+            } else if (pin_6 == '_') {
+              pin_6 = numb;
+            }
+          },
+        );
+      },
+      child: Container(
+        width: 64.0,
+        height: 64.0,
+        decoration: BoxDecoration(
+          border: Border.all(
+            color: Colors.grey,
+          ),
+        ),
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              numb,
+              style: GoogleFonts.nunito(
+                  fontSize: 24.0, fontWeight: FontWeight.w500),
+            ),
+            Text(
+              name,
+              style: GoogleFonts.nunito(
+                fontSize: 16.0,
+              ),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildClose(IconData icon) {
+    return InkWell(
+      onTap: () {
+        setState(() {
+          pin_1 = '_';
+          pin_2 = '_';
+          pin_3 = '_';
+          pin_4 = '_';
+          pin_5 = '_';
+          pin_6 = '_';
+        });
+      },
+      child: Container(
+        width: 64.0,
+        height: 64.0,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              icon,
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+  Widget _buildBackspace(IconData icon) {
+    return InkWell(
+      onTap: () {
+        setState(
+          () {
+            if (pin_6 != '_') {
+              pin_6 = '_';
+            } else if (pin_5 != '_') {
+              pin_5 = '_';
+            } else if (pin_4 != '_') {
+              pin_4 = '_';
+            } else if (pin_3 != '_') {
+              pin_3 = '_';
+            } else if (pin_2 != '_') {
+              pin_2 = '_';
+            } else if (pin_1 != '_') {
+              pin_1 = '_';
+            }
+          },
+        );
+      },
+      child: Container(
+        width: 64.0,
+        height: 64.0,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Icon(
+              icon,
+            )
+          ],
+        ),
+      ),
+    );
+  }
+
+// ----------------------------------------------------
+  Widget _buildunderscore(pin) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Text(
+          pin,
+          style: TextStyle(
+            fontSize: 20.0,
+          ),
+        ),
+      ],
+    );
+  }
+
+// -----------------------------------------------------
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(
-        //mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
           SizedBox(height: 48.0),
           Icon(
@@ -28,123 +170,35 @@ class Mypin_login extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Text(
-                '_',
-                style: TextStyle(
-                  fontSize: 20.0,
-                ),
-              ),
-              Text(
-                '_',
-                style: TextStyle(
-                  fontSize: 20.0,
-                ),
-              ),
-              Text(
-                '_',
-                style: TextStyle(
-                  fontSize: 20.0,
-                ),
-              ),
-              Text(
-                '_',
-                style: TextStyle(
-                  fontSize: 20.0,
-                ),
-              ),
-              Text(
-                '_',
-                style: TextStyle(
-                  fontSize: 20.0,
-                ),
-              ),
-              Text(
-                '_',
-                style: TextStyle(
-                  fontSize: 20.0,
-                ),
-              ),
+              _buildunderscore(pin_1),
+              _buildunderscore(pin_2),
+              _buildunderscore(pin_3),
+              _buildunderscore(pin_4),
+              _buildunderscore(pin_5),
+              _buildunderscore(pin_6),
             ],
           ),
           Spacer(),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                width: 64.0,
-                height: 64.0,
-                decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.grey,
-                ),
+              _buildNumpad(
+                '1',
+                'one',
               ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      '1',
-                      style: GoogleFonts.nunito(
-                          fontSize: 24.0, fontWeight: FontWeight.w500),
-                    ),
-                    Text(
-                      'one',
-                      style: GoogleFonts.nunito(
-                        fontSize: 16.0,
-                      ),
-                    ),
-                  ],
-                ),
+              SizedBox(
+                width: 16.0,
               ),
-              Container(
-                width: 64.0,
-                height: 64.0,
-                margin: EdgeInsets.symmetric(horizontal: 16.0),
-                decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.grey,
-                ),
+              _buildNumpad(
+                '2',
+                'two',
               ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      '2',
-                      style: GoogleFonts.nunito(
-                          fontSize: 24.0, fontWeight: FontWeight.w500),
-                    ),
-                    Text(
-                      'two',
-                      style: GoogleFonts.nunito(
-                        fontSize: 16.0,
-                      ),
-                    ),
-                  ],
-                ),
+              SizedBox(
+                width: 16.0,
               ),
-              Container(
-                width: 64.0,
-                height: 64.0,
-                decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.grey,
-                ),
-              ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      '3',
-                      style: GoogleFonts.nunito(
-                          fontSize: 24.0, fontWeight: FontWeight.w500),
-                    ),
-                    Text(
-                      'three',
-                      style: GoogleFonts.nunito(
-                        fontSize: 16.0,
-                      ),
-                    ),
-                  ],
-                ),
+              _buildNumpad(
+                '3',
+                'three',
               ),
             ],
           ),
@@ -154,81 +208,23 @@ class Mypin_login extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                width: 64.0,
-                height: 64.0,
-                decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.grey,
-                ),
+              _buildNumpad(
+                '4',
+                'four',
               ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      '4',
-                      style: GoogleFonts.nunito(
-                          fontSize: 24.0, fontWeight: FontWeight.w500),
-                    ),
-                    Text(
-                      'four',
-                      style: GoogleFonts.nunito(
-                        fontSize: 16.0,
-                      ),
-                    ),
-                  ],
-                ),
+              SizedBox(
+                width: 16.0,
               ),
-              Container(
-                width: 64.0,
-                height: 64.0,
-                margin: EdgeInsets.symmetric(horizontal: 16.0),
-                decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.grey,
-                ),
+              _buildNumpad(
+                '5',
+                'five',
               ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      '5',
-                      style: GoogleFonts.nunito(
-                          fontSize: 24.0, fontWeight: FontWeight.w500),
-                    ),
-                    Text(
-                      'five',
-                      style: GoogleFonts.nunito(
-                        fontSize: 16.0,
-                      ),
-                    ),
-                  ],
-                ),
+              SizedBox(
+                width: 16.0,
               ),
-              Container(
-                width: 64.0,
-                height: 64.0,
-                decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.grey,
-                ),
-              ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      '6',
-                      style: GoogleFonts.nunito(
-                          fontSize: 24.0, fontWeight: FontWeight.w500),
-                    ),
-                    Text(
-                      'six',
-                      style: GoogleFonts.nunito(
-                        fontSize: 16.0,
-                      ),
-                    ),
-                  ],
-                ),
+              _buildNumpad(
+                '6',
+                'six',
               ),
             ],
           ),
@@ -238,81 +234,23 @@ class Mypin_login extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                width: 64.0,
-                height: 64.0,
-                decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.grey,
-                ),
+              _buildNumpad(
+                '7',
+                'seven',
               ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      '7',
-                      style: GoogleFonts.nunito(
-                          fontSize: 24.0, fontWeight: FontWeight.w500),
-                    ),
-                    Text(
-                      'seven',
-                      style: GoogleFonts.nunito(
-                        fontSize: 16.0,
-                      ),
-                    ),
-                  ],
-                ),
+              SizedBox(
+                width: 16.0,
               ),
-              Container(
-                width: 64.0,
-                height: 64.0,
-                margin: EdgeInsets.symmetric(horizontal: 16.0),
-                decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.grey,
-                ),
+              _buildNumpad(
+                '8',
+                'eight',
               ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      '8',
-                      style: GoogleFonts.nunito(
-                          fontSize: 24.0, fontWeight: FontWeight.w500),
-                    ),
-                    Text(
-                      'eight',
-                      style: GoogleFonts.nunito(
-                        fontSize: 16.0,
-                      ),
-                    ),
-                  ],
-                ),
+              SizedBox(
+                width: 16.0,
               ),
-              Container(
-                width: 64.0,
-                height: 64.0,
-                decoration: BoxDecoration(
-                border: Border.all(
-                  color: Colors.grey,
-                ),
-              ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      '9',
-                      style: GoogleFonts.nunito(
-                          fontSize: 24.0, fontWeight: FontWeight.w500),
-                    ),
-                    Text(
-                      'nine',
-                      style: GoogleFonts.nunito(
-                        fontSize: 16.0,
-                      ),
-                    ),
-                  ],
-                ),
+              _buildNumpad(
+                '9',
+                'nine',
               ),
             ],
           ),
@@ -322,50 +260,18 @@ class Mypin_login extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              Container(
-                width: 64.0,
-                height: 64.0,
-                
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [Icon(Icons.close)],
-                ),
+              _buildClose(Icons.close),
+              SizedBox(
+                width: 16.0,
               ),
-              Container(
-                width: 64.0,
-                height: 64.0,
-                margin: EdgeInsets.symmetric(horizontal: 16.0),
-                decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.grey,
-                  ),
-                ),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text(
-                      '0',
-                      style: GoogleFonts.nunito(
-                          fontSize: 24.0, fontWeight: FontWeight.w500),
-                    ),
-                    Text(
-                      'zero',
-                      style: GoogleFonts.nunito(
-                        fontSize: 16.0,
-                      ),
-                    ),
-                  ],
-                ),
+              _buildNumpad(
+                '0',
+                'zero',
               ),
-              Container(
-                width: 64.0,
-                height: 64.0,
-                
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [Icon(Icons.backspace_outlined)],
-                ),
+              SizedBox(
+                width: 16.0,
               ),
+              _buildBackspace(Icons.backspace_outlined),
             ],
           ),
           Spacer(),
