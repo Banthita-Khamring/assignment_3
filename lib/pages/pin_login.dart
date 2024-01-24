@@ -54,12 +54,12 @@ class _Mypin_loginState extends State<Mypin_login> {
             Text(
               numb,
               style: GoogleFonts.nunito(
-                  fontSize: 24.0, fontWeight: FontWeight.w500),
+                  fontSize: 22.0, fontWeight: FontWeight.w500),
             ),
             Text(
               name,
               style: GoogleFonts.nunito(
-                fontSize: 16.0,
+                fontSize: 12.0,
               ),
             ),
           ],
@@ -152,7 +152,7 @@ class _Mypin_loginState extends State<Mypin_login> {
     return Scaffold(
       body: Column(
         children: [
-          SizedBox(height: 48.0),
+          Spacer(),
           Icon(
             Icons.security,
             size: 58.0,
@@ -187,14 +187,14 @@ class _Mypin_loginState extends State<Mypin_login> {
                 'one',
               ),
               SizedBox(
-                width: 16.0,
+                width: 18.0,
               ),
               _buildNumpad(
                 '2',
                 'two',
               ),
               SizedBox(
-                width: 16.0,
+                width: 18.0,
               ),
               _buildNumpad(
                 '3',
@@ -203,7 +203,7 @@ class _Mypin_loginState extends State<Mypin_login> {
             ],
           ),
           SizedBox(
-            height: 16.0,
+            height: 18.0,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -213,14 +213,14 @@ class _Mypin_loginState extends State<Mypin_login> {
                 'four',
               ),
               SizedBox(
-                width: 16.0,
+                width: 18.0,
               ),
               _buildNumpad(
                 '5',
                 'five',
               ),
               SizedBox(
-                width: 16.0,
+                width: 18.0,
               ),
               _buildNumpad(
                 '6',
@@ -229,7 +229,7 @@ class _Mypin_loginState extends State<Mypin_login> {
             ],
           ),
           SizedBox(
-            height: 16.0,
+            height: 18.0,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
@@ -239,14 +239,14 @@ class _Mypin_loginState extends State<Mypin_login> {
                 'seven',
               ),
               SizedBox(
-                width: 16.0,
+                width: 18.0,
               ),
               _buildNumpad(
                 '8',
                 'eight',
               ),
               SizedBox(
-                width: 16.0,
+                width: 18.0,
               ),
               _buildNumpad(
                 '9',
@@ -255,21 +255,21 @@ class _Mypin_loginState extends State<Mypin_login> {
             ],
           ),
           SizedBox(
-            height: 16.0,
+            height: 18.0,
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
               _buildClose(Icons.close),
               SizedBox(
-                width: 16.0,
+                width: 18.0,
               ),
               _buildNumpad(
                 '0',
                 'zero',
               ),
               SizedBox(
-                width: 16.0,
+                width: 18.0,
               ),
               _buildBackspace(Icons.backspace_outlined),
             ],
